@@ -24,6 +24,13 @@
   padding-left: 7px;
   padding-right: 1px;
 }
+.alignLeft {
+  text-align: left;
+  padding-left: 10px;
+}
+#sweetAlertFormat {
+  text-align: left;
+}
 #item2-2 {
   color: white;
   position: relative;
