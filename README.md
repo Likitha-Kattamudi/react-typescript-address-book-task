@@ -81,6 +81,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - Edit amnd Delete buttons are available to edit or delete the content from the flexItem4_1 div.
 - IDataInput.tsx is a component where IDataInput interface is defined.
 
-## Libraries Used
+## Libraries Used additionally
 
 sweetalert2 : customized alert boxes to show error messages or success messages to the user.
