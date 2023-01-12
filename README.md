@@ -12,7 +12,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### Folder Structure
-- Under src folder there is a subfolder with name `components`
++ Under src folder there is a subfolder with name `components`
 + In this folder, all the component files are present.
 + In 'App.tsx' there are two main components which are `Top` Component i.e, Top.tsx file and `Bottom` Component i.e, Bottom.tsx file.
 + Top.tsx returns a basic JSX element.
