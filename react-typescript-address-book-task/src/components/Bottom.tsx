@@ -33,6 +33,12 @@ function Bottom() {
   const handleClickOfMainAddButton = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
+    if (Id != -1 && Id != undefined) {
+      var removeBackgroundColor = document.getElementById(
+        Id.toString()
+      ) as HTMLDivElement;
+      removeBackgroundColor.style.backgroundColor = "white";
+    }
     document.getElementsByClassName("flexItem4-3")[0].innerHTML = "";
     var id1 = document.getElementById("addNewMember") as HTMLButtonElement;
     id1.classList.remove("hoverOnDivision2");
@@ -58,6 +64,9 @@ function Bottom() {
   };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let { name, value } = e.target;
+        if (name == "name" && value != undefined && value != "") {
+      value = value[0].toUpperCase() + value.substring(1);
+    }
     setValues({
       ...values,
       [name]: value,
@@ -103,7 +112,7 @@ function Bottom() {
         Swal.fire({
           title: "Error",
           html:
-            "<ul>" +
+            "<ul id=sweetAlertFormat>" +
             "<li>Email Format Should be xyz123@gmail.com</li>" +
             "<li>MobileNumber should be 10 digits</li>" +
             "<li>LandLine should be 12 digits</li>" +
@@ -121,7 +130,7 @@ function Bottom() {
           title: "Error",
           icon: "error",
           html:
-            "<ul>" +
+            "<ul id=sweetAlertFormat>" +
             "<li>Email Format Should be xyz123@gmail.com</li>" +
             "<li>MobileNumber should be 10 digits</li>" +
             "<li>LandLine should be 12 digits</li>" +
@@ -137,7 +146,7 @@ function Bottom() {
         Swal.fire({
           title: "Error",
           html:
-            "<ul>" +
+            "<ul id=sweetAlertFormat>" +
             "<li>Email Format Should be xyz123@gmail.com</li>" +
             "<li>MobileNumber should be 10 digits</li>" +
             "<li>LandLine should be 12 digits</li>" +
@@ -248,6 +257,7 @@ function Bottom() {
   };
 
   const editDataInBottom = () => {
+     if (Id != undefined && Id != -1) {
     let flexItem4_2 = document.getElementsByClassName(
       "flexItem4-2"
     )[0] as HTMLDivElement;
@@ -294,6 +304,7 @@ function Bottom() {
     setControlVariable(1);
     setPreviousId(Id);
     setId(Id);
+     }
   };
 
   useEffect(() => {
@@ -301,6 +312,7 @@ function Bottom() {
     data = y;
     isValid = true;
     setControlVariable(0);
+    setId(-1);
     createTasks();
   }, []);
 
@@ -350,7 +362,7 @@ function Bottom() {
               <thead></thead>
               <tbody>
                 <tr>
-                  <td>Name</td>
+                  <td className="alignLeft">Name</td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
@@ -358,12 +370,12 @@ function Bottom() {
                       onChange={handleInputChange}
                       id="name"
                       name="name"
-                      className="tableStyling1"
+                      className="tableStyling1" autoComplete="off"
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Email</td>
+                  <td className="alignLeft">Email</td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
@@ -371,13 +383,13 @@ function Bottom() {
                       id="email"
                       name="email"
                       className="tableStyling1"
-                      onChange={handleInputChange}
+                      onChange={handleInputChange} autoComplete="off"
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Mobile</td>
-                  <td>Landline</td>
+                  <td className="alignLeft">Mobile</td>
+                  <td className="alignLeft">Landline</td>
                 </tr>
                 <tr>
                   <td>
@@ -385,7 +397,7 @@ function Bottom() {
                       id="mobile"
                       name="mobile"
                       className="tableStyling2"
-                      onChange={handleInputChange}
+                      onChange={handleInputChange}  autoComplete="off"
                     />
                   </td>
                   <td>
@@ -393,12 +405,12 @@ function Bottom() {
                       id="landLine"
                       name="landLine"
                       className="tableStyling2"
-                      onChange={handleInputChange}
+                      onChange={handleInputChange}  autoComplete="off"
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Website</td>
+                  <td className="alignLeft">Website</td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
@@ -406,12 +418,12 @@ function Bottom() {
                       id="webSite"
                       name="webSite"
                       className="tableStyling1"
-                      onChange={handleInputChange}
+                      onChange={handleInputChange}  autoComplete="off"
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td>Address</td>
+                  <td className="alignLeft">Address</td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
@@ -421,7 +433,7 @@ function Bottom() {
                       name="address"
                       className="tableStyling1"
                       id="address"
-                      onChange={handleAddressInput}
+                      onChange={handleAddressInput}  autoComplete="off"
                     ></textarea>
                   </td>
                 </tr>
